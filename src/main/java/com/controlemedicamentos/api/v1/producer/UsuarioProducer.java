@@ -7,7 +7,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import com.controlemedicamentos.dto.UsuarioDTO;
+import com.controlemedicamentos.api.v1.dto.UsuarioDTO;
 
 
 @Component

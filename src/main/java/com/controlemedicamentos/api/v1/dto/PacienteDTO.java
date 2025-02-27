@@ -1,4 +1,4 @@
-package com.controlemedicamentos.dto;
+package com.controlemedicamentos.api.v1.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -12,11 +12,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude
-public class UsuarioDTO {
+public class PacienteDTO {
 
 	private String nome;
 	
-	private String email;
+	private String raca;
 	
-	private String senha;
+	private Double peso;
+	
+	private String cor;
+	
+	private Integer idade;
 }

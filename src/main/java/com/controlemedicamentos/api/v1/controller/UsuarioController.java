@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.controlemedicamentos.api.v1.dto.UsuarioDTO;
 import com.controlemedicamentos.api.v1.producer.UsuarioProducer;
-import com.controlemedicamentos.dto.UsuarioDTO;
 
 @RestController
 @RequestMapping(path = "v1/usuarios")

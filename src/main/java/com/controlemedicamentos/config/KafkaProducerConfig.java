@@ -16,7 +16,7 @@ import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 import org.springframework.stereotype.Component;
 
-import com.controlemedicamentos.dto.UsuarioDTO;
+import com.controlemedicamentos.api.v1.dto.UsuarioDTO;
 
 @Component
 @Configuration

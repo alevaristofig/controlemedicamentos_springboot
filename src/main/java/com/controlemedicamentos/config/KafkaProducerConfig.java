@@ -25,12 +25,20 @@ public class KafkaProducerConfig {
 	@Value("${spring.kafka.bootstrap-servers}")
 	private String bootstrapServers;
 	
-	@Value("${topic.name-producer}")
-	private String topic;
+	@Value("${topic.usuario-producer}")
+	private String topicUsuarios;
+	
+	@Value("${topic.paciente-producer}")
+	private String topicPacientes;
 	
 	@Bean
-	public NewTopic createTopic() {
-		return new NewTopic(topic,3,(short) 1);
+	public NewTopic createTopicUsuarios() {
+		return new NewTopic(topicUsuarios,3,(short) 1);
+	}
+	
+	@Bean
+	public NewTopic createTopicPacientes() {
+		return new NewTopic(topicPacientes,3,(short) 1);
 	}
 	
 	@Bean

@@ -17,7 +17,7 @@ public class UsuarioProducer {
 	private final String topic;
 	private final KafkaTemplate<String, UsuarioDTO> kafkaTemplate;
 	
-	public UsuarioProducer(@Value("${topic.name-producer}") String topic,
+	public UsuarioProducer(@Value("${topic.usuario-producer}") String topic,
 			KafkaTemplate<String, UsuarioDTO> kafkaTemplate) {
 		
 		this.topic = topic;

@@ -16,6 +16,7 @@ import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 import org.springframework.stereotype.Component;
 
+import com.controlemedicamentos.api.v1.dto.PacienteDTO;
 import com.controlemedicamentos.api.v1.dto.UsuarioDTO;
 
 @Component
@@ -54,7 +55,24 @@ public class KafkaProducerConfig {
 	}
 	
 	@Bean
+	public ProducerFactory<String, PacienteDTO> pacienteProducerFactory() {
+		Map<String, Object> configProps = new HashMap<>();
+		
+		configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+		configProps.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, false);
+		configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+		configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class.getName());
+		
+		return new DefaultKafkaProducerFactory<>(configProps);
+	}
+	
+	@Bean
 	public KafkaTemplate<String, UsuarioDTO> usuarioKafkaTemplate() {
 		return new KafkaTemplate<>(usuarioProducerFactory());
+	}
+	
+	@Bean
+	public KafkaTemplate<String, PacienteDTO> pacienteKafkaTemplate() {
+		return new KafkaTemplate<>(pacienteProducerFactory());
 	}
 }

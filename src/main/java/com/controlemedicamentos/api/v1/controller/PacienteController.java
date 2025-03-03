@@ -10,20 +10,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.controlemedicamentos.api.v1.dto.UsuarioDTO;
-import com.controlemedicamentos.api.v1.producer.UsuarioProducer;
+import com.controlemedicamentos.api.v1.dto.PacienteDTO;
+import com.controlemedicamentos.api.v1.producer.PacienteProducer;
 
 @RestController
-@RequestMapping(path = "v1/usuarios", consumes = MediaType.APPLICATION_JSON_VALUE)
-public class UsuarioController {
-
-	@Autowired
-	private UsuarioProducer usuarioProducer;
+@RequestMapping(path = "v1/pacientes", consumes = MediaType.APPLICATION_JSON_VALUE)
+public class PacienteController {
 	
-	@PostMapping()
-	public ResponseEntity<UsuarioDTO> adicionar(@RequestBody @Validated UsuarioDTO usuarioDto) {
-		usuarioProducer.send(usuarioDto);
+	@Autowired
+	private PacienteProducer pacienteProducer;
+
+	@PostMapping
+	public ResponseEntity<PacienteDTO> adicionar(@RequestBody @Validated PacienteDTO pacienteDTO) {
+		pacienteProducer.send(pacienteDTO);
 		
-		return ResponseEntity.status(HttpStatus.CREATED).build();		
+		return ResponseEntity.status(HttpStatus.CREATED).build();
 	}
 }

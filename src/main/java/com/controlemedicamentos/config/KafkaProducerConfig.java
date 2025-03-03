@@ -16,6 +16,7 @@ import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 import org.springframework.stereotype.Component;
 
+import com.controlemedicamentos.api.v1.dto.MedicamentoDTO;
 import com.controlemedicamentos.api.v1.dto.PacienteDTO;
 import com.controlemedicamentos.api.v1.dto.UsuarioDTO;
 
@@ -32,6 +33,9 @@ public class KafkaProducerConfig {
 	@Value("${topic.paciente-producer}")
 	private String topicPacientes;
 	
+	@Value("${topic.medicamento-producer}")
+	private String topicMedicamentos;
+	
 	@Bean
 	public NewTopic createTopicUsuarios() {
 		return new NewTopic(topicUsuarios,3,(short) 1);
@@ -40,6 +44,11 @@ public class KafkaProducerConfig {
 	@Bean
 	public NewTopic createTopicPacientes() {
 		return new NewTopic(topicPacientes,3,(short) 1);
+	}
+	
+	@Bean
+	public NewTopic createTopicMedicamentos() {
+		return new NewTopic(topicMedicamentos,3,(short) 1);
 	}
 	
 	@Bean
@@ -67,6 +76,18 @@ public class KafkaProducerConfig {
 	}
 	
 	@Bean
+	public ProducerFactory<String, MedicamentoDTO> medicamentoProducerFactory() {
+		Map<String, Object> configProps = new HashMap<>();
+		
+		configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+		configProps.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, false);
+		configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+		configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class.getName());
+		
+		return new DefaultKafkaProducerFactory<>(configProps);
+	}
+	
+	@Bean
 	public KafkaTemplate<String, UsuarioDTO> usuarioKafkaTemplate() {
 		return new KafkaTemplate<>(usuarioProducerFactory());
 	}
@@ -74,5 +95,10 @@ public class KafkaProducerConfig {
 	@Bean
 	public KafkaTemplate<String, PacienteDTO> pacienteKafkaTemplate() {
 		return new KafkaTemplate<>(pacienteProducerFactory());
+	}
+	
+	@Bean
+	public KafkaTemplate<String, MedicamentoDTO> medicamentoKafkaTemplate() {
+		return new KafkaTemplate<>(medicamentoProducerFactory());
 	}
 }

@@ -18,5 +18,10 @@
     "name": "topic.medicamento-producer",
     "type": "java.lang.String",
     "description": "A description for 'topic.medicamento-producer'"
+  },
+  {
+    "name": "topic.aplicacao-producer",
+    "type": "java.lang.String",
+    "description": "A description for 'topic.aplicacao-producer'"
   }
 ]}

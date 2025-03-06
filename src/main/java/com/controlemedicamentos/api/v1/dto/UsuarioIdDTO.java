@@ -12,17 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude
-public class PacienteDTO {
+public class UsuarioIdDTO {
 
-	private String nome;
-	
-	private String raca;
-	
-	private Double peso;
-	
-	private String cor;
-	
-	private Integer idade;
-	
-	private UsuarioIdDTO usuarioId;
+	private Long id;
 }

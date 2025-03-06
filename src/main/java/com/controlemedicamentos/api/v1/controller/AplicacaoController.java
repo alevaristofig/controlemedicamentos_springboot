@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +21,7 @@ public class AplicacaoController {
 	private AplicacaoProducer aplicacaoProducer;
 
 	@PostMapping
-	public ResponseEntity<AplicacaoDTO> salvar(AplicacaoDTO aplicacaoDTO) {
+	public ResponseEntity<AplicacaoDTO> salvar(@RequestBody @Validated AplicacaoDTO aplicacaoDTO) {
 		aplicacaoProducer.send(aplicacaoDTO);
 		
 		return ResponseEntity.status(HttpStatus.CREATED).build();

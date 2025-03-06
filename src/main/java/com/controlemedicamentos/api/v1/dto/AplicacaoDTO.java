@@ -1,24 +1,17 @@
 package com.controlemedicamentos.api.v1.dto;
 
-import java.time.OffsetDateTime;
+import java.time.LocalDateTime;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Getter;
+import lombok.Setter;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-@JsonInclude
+@Getter
+@Setter
 public class AplicacaoDTO {
-
-	private UsuarioIdDTO usuarioId;
 	
 	private PacienteIdDTO pacienteId;
+
+	private MedicamentoIdDTO medicamentoId;	
 	
-	private OffsetDateTime dataAplicacao;
+	private LocalDateTime dataAplicacao;
 }

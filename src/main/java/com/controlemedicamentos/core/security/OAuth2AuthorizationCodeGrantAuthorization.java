@@ -1,4 +1,4 @@
-package com.controlemedicamentos.core.security.domain;
+package com.controlemedicamentos.core.security;
 
 import java.security.Principal;
 import java.time.Instant;
@@ -7,8 +7,8 @@ import java.util.Set;
 import org.springframework.data.redis.core.index.Indexed;
 import org.springframework.security.oauth2.core.endpoint.OAuth2AuthorizationRequest;
 
-import com.controlemedicamentos.core.security.domain.OAuth2AuthorizationGrantAuthorization.AbstractToken.AccessToken;
-import com.controlemedicamentos.core.security.domain.OAuth2AuthorizationGrantAuthorization.AbstractToken.AccessToken.RefreshToken;
+import com.controlemedicamentos.core.security.OAuth2AuthorizationGrantAuthorization.AbstractToken.AccessToken;
+import com.controlemedicamentos.core.security.OAuth2AuthorizationGrantAuthorization.AbstractToken.AccessToken.RefreshToken;
 
 public class OAuth2AuthorizationCodeGrantAuthorization extends OAuth2AuthorizationGrantAuthorization {
 

@@ -1,4 +1,4 @@
-package com.controlemedicamentos.core.security.domain;
+package com.controlemedicamentos.core.security;
 
 import java.time.Instant;
 import java.util.Map;
@@ -11,8 +11,8 @@ import org.springframework.security.oauth2.core.OAuth2AccessToken;
 import org.springframework.security.oauth2.core.OAuth2AccessToken.TokenType;
 import org.springframework.security.oauth2.server.authorization.settings.OAuth2TokenFormat;
 
-import com.controlemedicamentos.core.security.domain.OAuth2AuthorizationGrantAuthorization.AbstractToken.AccessToken;
-import com.controlemedicamentos.core.security.domain.OAuth2AuthorizationGrantAuthorization.AbstractToken.AccessToken.RefreshToken;
+import com.controlemedicamentos.core.security.OAuth2AuthorizationGrantAuthorization.AbstractToken.AccessToken;
+import com.controlemedicamentos.core.security.OAuth2AuthorizationGrantAuthorization.AbstractToken.AccessToken.RefreshToken;
 
 @RedisHash("oauth2_authorization")
 public class OAuth2AuthorizationGrantAuthorization {

@@ -1,4 +1,4 @@
-package com.controlemedicamentos.core.security.domain;
+package com.controlemedicamentos.core.security;
 
 import java.time.Duration;
 import java.time.Instant;

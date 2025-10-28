@@ -4,7 +4,9 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.oauth2.server.authorization.OAuth2Authorization;
 import org.springframework.security.oauth2.server.authorization.OAuth2AuthorizationService;
 import org.springframework.security.oauth2.server.authorization.OAuth2TokenType;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RedisOAuth2AuthorizationService implements OAuth2AuthorizationService {
 	
 	private final RedisTemplate<String, OAuth2Authorization> redisTemplate;
